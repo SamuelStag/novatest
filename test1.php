@@ -111,7 +111,9 @@
  	 		}
 
  	 			if(ctype_upper($tmp_char)){
+
  	 				$tmp_char = strtolower($tmp_char.$tmp_char);
+ 	 				$result.=$tmp_char;
  	 			}else{
 
  	 				$result.=$tmp_char;
@@ -127,8 +129,8 @@
 
  }
 
- $app = new Cipher("hello world");
- echo$app->encode();
+ $app = new Cipher("haLu wurlt");
+// echo$app->encode();
 echo $app->decode();
 
 ?>
