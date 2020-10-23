@@ -11,7 +11,7 @@
 
  	 	$result ="";
  	 	for($x=0; $x<strlen($this->word); $x++){
- 	 		$tmp_char =$this->word[$x];
+ 	 		$tmp_char = strtolower($this->word[$x]);
  	 		if($tmp_char=='a'){
  	 			$tmp_char='e';
  	 		}elseif($tmp_char=='e'){
@@ -49,8 +49,8 @@
  	 		}elseif($tmp_char=='n'){
  	 			$tmp_char='m';
  	 		}
- 	 			if($x > 0 && $tmp_char==$result[$x-1]){
- 	 				$result = substr($result, 0, -1);
+ 	 			if($x > 0 && $tmp_char==@$result[$x-1]){
+ 	 				$result = @substr($result, 0, -1);
  	 				$result.=strtoupper($tmp_char);
  	 			}else{
 
@@ -110,9 +110,8 @@
  	 			$tmp_char='m';
  	 		}
 
- 	 			if($x > 0 && $tmp_char==$result[$x-1]){
- 	 				$result = substr($result, 0, -1);
- 	 				$result.=strtoupper($tmp_char);
+ 	 			if(ctype_upper($tmp_char)){
+ 	 				$tmp_char = strtolower($tmp_char.$tmp_char);
  	 			}else{
 
  	 				$result.=$tmp_char;
@@ -130,6 +129,6 @@
 
  $app = new Cipher("hello world");
  echo$app->encode();
-eccho $app->decode();
+echo $app->decode();
 
 ?>
